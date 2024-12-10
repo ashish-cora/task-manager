@@ -4,11 +4,9 @@ const PORT = 3000;
 const tasks = require('./public/routes/tasks')
 const connectDB = require("./db/connect")
 require('dotenv').config();
-app.use(express.json());
 
-app.get('/hello', (req, res) => {
-    res.status(200).send({name : "cora"})
-})
+app.use(express.static('./public'))
+app.use(express.json());
 
 app.use('/api/v1/tasks', tasks)
 
